@@ -1,5 +1,3 @@
-name: Run JMeter Tests
- 
 on: 
   push:
     branches:
@@ -22,13 +20,14 @@ jobs:
         distribution: 'adopt'
         java-version: '11'
  
-     
-    - name: Run JMeter tests
-      run: |
-        RestAPI.jmx
- 
+    - name: PerfAction for JMeter
+      uses: QAInsights/PerfAction@v5.6.2
+      with:
+        test-plan-path: './RestAPI.jmx'
+        
+    
     - name: Upload test results
       uses: actions/upload-artifact@v3
       with:
         name: jmeter-results
-        path: ./results/result.jtl
+        path: result.jtl
