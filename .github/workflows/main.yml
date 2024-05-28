@@ -1,0 +1,34 @@
+name: Run JMeter Tests
+ 
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+ 
+jobs:
+  run-jmeter:
+    runs-on: ubuntu-latest
+ 
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+ 
+    - name: Set up Java
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'adopt'
+        java-version: '11'
+ 
+     
+    - name: Run JMeter tests
+      run: |
+        RestAPI.jmx
+ 
+    - name: Upload test results
+      uses: actions/upload-artifact@v3
+      with:
+        name: jmeter-results
+        path: ./results/result.jtl
