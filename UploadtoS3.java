@@ -10,13 +10,13 @@ public class S3UploadExample {
  
     public static void main(String[] args) {
         // Replace with your AWS credentials
-        String accessKey = "YOUR_ACCESS_KEY";
-        String secretKey = "YOUR_SECRET_KEY";
+        String accessKey = "AKIAQFLZDQVMRN57BFHG";
+        String secretKey = "ekp0POpsi0xU/wPmykthQCJUuO1phgdgLnv7RffA";
         // Replace with your bucket name
-        String bucketName = "your-bucket-name";
+        String bucketName = "test.artifacts";
         // Replace with your file paths
-        String filePath1 = "path/to/your/first/file.txt";
-        String filePath2 = "path/to/your/second/file.txt";
+        String filePath1 = "/home/gaurang/Result.jtl";
+        String filePath1 = "/home/gaurang/Report/Index.html";
         // Create AWS credentials
         BasicAWSCredentials awsCreds = new BasicAWSCredentials(accessKey, secretKey);
         // Create an S3 client
@@ -26,11 +26,11 @@ public class S3UploadExample {
                 .build();
         // Upload the first file
         File file1 = new File(filePath1);
-        s3Client.putObject(new PutObjectRequest(bucketName, "file1.txt", file1));
-        System.out.println("Uploaded file1.txt");
+        s3Client.putObject(new PutObjectRequest(bucketName, "Result.jtl", file1));
+        System.out.println("Uploaded Results.jtl");
         // Upload the second file
         File file2 = new File(filePath2);
-        s3Client.putObject(new PutObjectRequest(bucketName, "file2.txt", file2));
-        System.out.println("Uploaded file2.txt");
+        s3Client.putObject(new PutObjectRequest(bucketName, "Index.html", file2));
+        System.out.println("Uploaded Index.html");
     }
 }
