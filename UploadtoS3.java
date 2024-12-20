@@ -10,8 +10,8 @@ public class S3UploadExample {
  
     public static void main(String[] args) {
         // Replace with your AWS credentials
-        String accessKey = "AKIAQFLZDQVMRN57BFHG";
-        String secretKey = "ekp0POpsi0xU/wPmykthQCJUuO1phgdgLnv7RffA";
+        String accessKey = "";
+        String secretKey = "";
         // Replace with your bucket name
         String bucketName = "test.artifacts";
         // Replace with your file paths
